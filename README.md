@@ -6,9 +6,13 @@ A simple Python-based quiz application designed to test programming knowledge th
 Features
 
 1.Randomized Questions: Shuffles questions dynamically for varied gameplay.
+
 2.Multiple-Choice Format: Offers four answer options for each question.
+
 3.Answer Validation & Scoring: Provides instant feedback and tracks correct responses.
+
 4.Explanation for Mistakes: Displays the correct answer and reasoning when an incorrect response is given.
+
 5.User-Friendly Interaction: Simple text-based interface allowing smooth user input handling
 
 2.Secret Code Generator & Decoder
@@ -18,5 +22,7 @@ A Python program that encrypts and deciphers text using a simple character manip
 Features
 
 1.Custom Encoding & Decoding: Encrypts text using predefined logic and restores it accurately.
+
 2.Word-Based Transformation: Adjusts structure based on word length for added complexity.
+
 3.User-Friendly Input Handling: Allows interactive text encryption and decryption.
