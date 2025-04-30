@@ -8,15 +8,15 @@ A simple Python-based quiz application designed to test programming knowledge th
 
 # FEATURES
 
-1.Randomized Questions: Shuffles questions dynamically for varied gameplay.
+1. Randomized Questions: Shuffles questions dynamically for varied gameplay.
 
-2.Multiple-Choice Format: Offers four answer options for each question.
+2. Multiple-Choice Format: Offers four answer options for each question.
 
-3.Answer Validation & Scoring: Provides instant feedback and tracks correct responses.
+3. Answer Validation & Scoring: Provides instant feedback and tracks correct responses.
 
-4.Explanation for Mistakes: Displays the correct answer and reasoning when an incorrect response is given.
+4. Explanation for Mistakes: Displays the correct answer and reasoning when an incorrect response is given.
 
-5.User-Friendly Interaction: Simple text-based interface allowing smooth user input handling
+5. User-Friendly Interaction: Simple text-based interface allowing smooth user input handling
 
 # HOW TO PLAY
 
@@ -40,31 +40,31 @@ A Python program that encrypts and deciphers text using a simple character manip
 
 # FEATURES
 
-1.Custom Encoding & Decoding: Encrypts text using predefined logic and restores it accurately.
+1. Custom Encoding & Decoding: Encrypts text using predefined logic and restores it accurately.
 
-2.Word-Based Transformation: Adjusts structure based on word length for added complexity.
+2. Word-Based Transformation: Adjusts structure based on word length for added complexity.
 
-3.User-Friendly Input Handling: Allows interactive text encryption and decryption.
+3. User-Friendly Input Handling: Allows interactive text encryption and decryption.
 
 # ENCODING RULES
 
 Words with 3 or more letters are modified:
   
-  1.A prefix (ghf) is added.
+  1. A prefix (ghf) is added.
   
-  2.The first letter moves to the end.
+  2. The first letter moves to the end.
   
-  3.A suffix (hhv) is added.
+  3. A suffix (hhv) is added.
   
-  4.Example: "hello" → "ghfellohhv".
+  4. Example: "hello" → "ghfellohhv".
   
-  5.Short words** are reversed.
+  5. Short words are reversed.
 
 #  DECODING RULES
 
-1.The transformation is reversed for encoded words
+1. The transformation is reversed for encoded words
 
-2.Short words are flipped back to their original form.
+2. Short words are flipped back to their original form.
 
 # HOW TO USE
 
@@ -88,13 +88,13 @@ A Python-based Rock-Paper-Scissors game where the player competes against the co
 
 # FEATURES
 
-1.Interactive gameplay with user input validation
+1. Interactive gameplay with user input validation
 
-2.Randomized computer moves
+2. Randomized computer moves
 
-3.Score tracking for both the player and computer
+3. Score tracking for both the player and computer
 
-4.Replay option for continuous gameplay
+4. Replay option for continuous gameplay
 
 # HOW TO PLAY
 
@@ -119,34 +119,34 @@ This is a number-guessing game where the player tries to guess a randomly genera
 
 # FEATURES
 
-1.Hints to guide the player (higher or lower)
+1. Hints to guide the player (higher or lower)
 
-2.Scoring System that rewards quick guesses
+2. Scoring System that rewards quick guesses
 
-3.Replay Option for continuous gameplay
+3. Replay Option for continuous gameplay
 
-4.Error Handling for invalid inputs
+4. Error Handling for invalid inputs
 
 # RULES
 
-1.You will get 100 points if guessed within 5 attempts.
+1. You will get 100 points if guessed within 5 attempts.
 
-2.If more than 5 attempts are taken, the score is adjusted using:
+2. If more than 5 attempts are taken, the score is adjusted using:
 
 python
 points = min(100, max(0, 100 - (attempts - 5) * 10))
 
 # HOW TO PLAY
 
-1.Run the script in a Python environment.
+1. Run the script in a Python environment.
 
-2.Enter a number between 1 and 100.
+2. Enter a number between 1 and 100.
 
-3.The game will provide hints (higher or lower) to refine your guesses.
+3. The game will provide hints (higher or lower) to refine your guesses.
 
-4.Your score depends on the number of attempts taken.
+4. Your score depends on the number of attempts taken.
 
-5.Play multiple rounds if you wish!
+5. Play multiple rounds if you wish!
 
 
 
