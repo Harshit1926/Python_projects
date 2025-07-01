@@ -17,7 +17,7 @@ while True:
     max_points=100
     while (guess!=number):
         try: 
-            guess=int(input("\nEnter your guess:"))
+            guess=int(input("\nEnter your guess between 1 and 100:"))
             
         except ValueError:
             print("Enter a valid number.")
