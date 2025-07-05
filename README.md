@@ -176,6 +176,46 @@ A simple yet powerful Python-based unit converter that allows users to convert l
    
 4. Final result is printed in a readable format.
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+# SIXTH PROJECT
+ 
+ Multi-Stock Price Visualizer with Moving Average
 
+This Python project fetches historical data for multiple stocks (AAPL, META, TSLA) using `yfinance`, and visualizes both their closing prices and 20-day moving averages over time.
+
+# FEATURES
+
+1. Uses yfinance to collect daily stock data between user-defined dates
+
+2. Calculates a 20-day simple moving average for each stock
+   
+3. Plots both closing prices and trendlines with Matplotlib
+   
+4. Assigns distinct color schemes for better visual differentiation
+   
+5. Prints latest closing vs average prices for a quick market snapshot
+
+# TECH STACK
+1. Python
+   
+2. pandas
+  
+3. yfinance
+
+4. matplotlib
+
+# OUTPUT
+
+The plot includes labeled trendlines, legends, and a clean layout, making it suitable for presentation or financial analysis dashboards.
+
+# REQUIREMENTS
+
+Python Version 3.11.3 used
+
+pandas Version 2.2.2 used
+
+yfinance Version 0.2.37 used
+
+matplotlib Version 3.8.4 used
 
