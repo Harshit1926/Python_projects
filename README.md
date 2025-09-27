@@ -15,5 +15,6 @@ Explore 9 interactive CLI tools built using Python. These projects are designed 
 | 7. Camera and Video recorder | Capture photos or record live videos using internal/external webcam with saving support                                          |
 | 8. Interactive Image processing Tool | Versatile image processing tool using OpenCV. Supports grayscale, crop, flip, rotate, blur, sharpen, resize, and save features |
 | 9. Smart Face Detector    | Uses OpenCV Haar cascades to detect faces, smiles, and eyes in real-time. Automatically captures photos when a smile is detected, with a cooldown timer and overlay text for feedback. Supports internal/external webcams and dynamic photo naming based on timestamps. |
+| 10. Flu Diagnosis Predictor | Machine learning project using Decision Tree Classifier to predict flu based on fever and cough. Includes accuracy evaluation, confusion matrix visualization, decision tree plot, and interactive CLI diagnosis. |
 
 # > Each project has its own README file with usage instructions and features.
