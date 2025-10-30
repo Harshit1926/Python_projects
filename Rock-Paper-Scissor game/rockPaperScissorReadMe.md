@@ -1,23 +1,49 @@
-# ROCK-PAPER-SCISSOR GAME
+# ROCK-PAPER-SCISSOR WEB APP
 
-A Python-based Rock-Paper-Scissors game where the player competes against the computer in a best-of-three format. The game implements input validation, a loop for multiple rounds, and score tracking.
+A Flask-powered Rock-Paper-Scissors game where the player competes against the computer in a best-of-three format. The game features interactive web-based gameplay, session-based score tracking, and dynamic result rendering.
 
 # FEATURES
 
-Interactive gameplay with user input validation
+  Web-based interactive gameplay using Flask
 
-Randomized computer moves
+  Session management to track rounds and scores
 
-Score tracking for both the player and computer
+  Randomized computer moves for fairness
 
-Replay option for continuous gameplay
+  Score tracking across three rounds
+
+  Replay option after each match
+
+  Session reset after game completion
+
 
 # HOW TO PLAY
 
-Run the script in a Python environment.
+- Run the app:
+    python rockpaperscissor.py
+    The game will auto-launch in your browser at http://127.0.0.1:5002.
 
-Choose your move: 1 for Rock 2 for Paper 3 for Scissors
+- Choose your move:
+    - Rock
+    - Paper
+    - Scissors
 
-The game runs three rounds, determining the final winner.
+- Play three rounds:
+    - Each round compares your move with the computer's.
+    - Scores are updated after each round.
 
-You can play again after finishing a match.
+- View final result:
+    - After round 3, the game declares the winner.
+    - You can choose to play again or exit.
+
+# TECH STACK
+- Python 3
+- Flask
+- HTML Templates (game.html, result2.html, final.html, thanks.html)
+- Session API for stateful gameplay
+
+
+# NOTES
+    - The app uses session.clear() to reset game state after completion.
+    - Secret key (IamBatman) is used for session encryption — replace it in production.
+    - Port 5002 is used for local hosting.

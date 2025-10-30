@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Final Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .final {
+            font-size: 1.4rem;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Game Over!</h1>
+        <div class="final">{{ final_result }}</div>
+
+        <div class="choices">
+            <p>Final Round Result: {{ result }}</p>
+            <p>You chose: <strong>{{ user_choice }}</strong></p>
+            <p>Computer chose: <strong>{{ computer_choice }}</strong></p>
+        </div>
+
+        <form action="{{ url_for('again') }}" method="POST">
+            <button name="play_again" value="Yes">Play Again</button>
+            <button name="play_again" value="No">Exit</button>
+        </form>
+    </div>
+</body>
+
+</html>

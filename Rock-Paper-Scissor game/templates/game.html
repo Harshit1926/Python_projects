@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors - Round {{ round_number }}</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            width: 400px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        /* Style for the main game title */
+        .main-title {
+            font-size: 1.5rem;
+            color: #1F2937;
+            /* Dark gray-blue */
+            margin-bottom: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* General h1 style (e.g., "Make Your Move!") */
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #6EE7B7, #3B82F6);
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #34D399, #2563EB);
+        }
+
+        .round {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1 class="main-title">Rock-Paper-Scissor Game By Harshit Malhotra</h1>
+        </div>
+        <div class="round">Round {{ round_number }} of 3</div>
+        <h1>Make Your Move!</h1>
+        <form method="POST">
+            <button type="submit" name="user_choice" value="Rock">🪨 Rock</button>
+            <button type="submit" name="user_choice" value="Paper">📜 Paper</button>
+            <button type="submit" name="user_choice" value="Scissors">✂️ Scissors</button>
+        </form>
+    </div>
+</body>
+
+</html>

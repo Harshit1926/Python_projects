@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Round {{ round_number }} Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .result {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .scores {
+            margin-top: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Round {{ round_number - 1 }} Result</h1>
+        <p><strong>Your Choice:</strong> {{ user_choice }}</p>
+        <p><strong>Computer's Choice:</strong> {{ computer_choice }}</p>
+        <div class="result">{{ result }}</div>
+
+        <div class="scores">
+            <p>Your Score: {{ user_score }}</p>
+            <p>Computer Score: {{ computer_score }}</p>
+        </div>
+
+        <a href="{{ url_for('start_game') }}">Next Round</a>
+    </div>
+</body>
+
+</html>

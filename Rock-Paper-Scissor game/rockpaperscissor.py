@@ -1,65 +1,66 @@
+from flask import Flask,render_template,request,session,url_for,redirect
 import random
-title="ROCK PAPER SCISSORS"
-print(title.center(50))
-moves="""
-1. CHOOSE 1 FOR ROCK
-2. CHOOSE 2 FOR PAPER
-3. CHOOSE 3 FOR SCISSORS
-"""
-print(moves)
+import webbrowser
+app=Flask(__name__)
+app.secret_key="IamBatman"
 
+@app.route("/",methods=["GET","POST"])
 def start_game():
-    choices=[1,2,3]
-    computer_choice=random.randint(1,3)
+    if "round_number" not in session:
+        session["round_number"]=1
+        session["user_score"]=0
+        session["computer_score"]=0
 
-    while True:
-        try:
-            user_choices=int(input("Enter your move:"))
-            if (user_choices not in [1,2,3]):
-                print("Enter a valid number from [1,2,3].")
-                continue
-            break
-        except ValueError:
-            print("Enter a valid number")
-       
-    print(f"Computer chooses {computer_choice}")
-    if(user_choices==computer_choice):
-        print("It is a draw")
-        return None
-    elif(user_choices==1 and computer_choice==3 or\
-        user_choices==2 and computer_choice==1 or\
-        user_choices==3 and computer_choice==2):
-        print("You Won!")
-        return "user"
-    else:
-        print("Computer Won!")
-        return "computer"
-def win():
-    user_win=0
-    computer_win=0
+    if request.method=="POST":
+        session["computer_choice"] = random.choice(["Rock", "Paper", "Scissors"])
+        computer_choice=session["computer_choice"]
+        user_choice=request.form.get("user_choice")
 
-    for round_win in range (1,4):
-        print(f"Round {round_win}")
-        winner=start_game()
-        if (winner is None):
-            continue
-        if (winner=="user"):
-            user_win+=1
-        elif(winner=="computer"):
-            computer_win+=1
+        if computer_choice==user_choice:
+            result="It's a Draw"
+        elif (computer_choice=="Rock" and user_choice=="Paper" or
+                computer_choice=="Paper" and user_choice=="Scissors" or
+                computer_choice=="Scissors" and user_choice=="Rock"):
+            result="You Won"
+            session["user_score"]+=1
+        else:
+            result="Computer Won"
+            session["computer_score"]+=1
+        session["round_number"]+=1
+
+        if session["round_number"]>3:
+            if session["user_score"]>session["computer_score"]:
+                final_result="Congrats! You won the Game"
+            elif session["computer_score"]>session["user_score"]:
+                final_result="Computer won the game"
+            else:
+                final_result="It's a draw"
+            
+            session.clear()
+
+            return render_template("final.html",final_result=final_result,user_choice=user_choice,computer_choice=computer_choice,result=result)
         
-    print("\nFINAL RESULT:")   
-     
-    if(user_win>computer_win):
-        print("Congratulations! You Won the Game")
-    elif(computer_win>user_win):
-        print("Computer Won the Game!")
-    elif(user_win==computer_win):
-        print("It's a Draw")
+        return render_template("result2.html",
+                               user_choice=user_choice,
+                               computer_choice=computer_choice,
+                               result=result,
+                               round_number=session["round_number"],
+                               user_score=session["user_score"],
+                               computer_score=session["computer_score"])
+    
 
-while True:
-    win()
-    another_round = input("Do you want to play another round (yes/no): ").lower()
-    if another_round != "yes":
-        print("Thank you for playing this game.")
-        break
+    return render_template("game.html",round_number=session["round_number"])
+
+@app.route("/again",methods=["GET","POST"])
+def again():
+    choice=request.form.get("play_again")
+    if choice=="Yes":
+        session.clear()
+        return redirect(url_for("start_game"))
+    else:
+        return(render_template("thanks.html"))
+
+if __name__ == "__main__":
+    webbrowser.open("http://127.0.0.1:5002")
+    app.run(debug=True, host="127.0.0.1", port=5002,use_reloader=False)
+    
