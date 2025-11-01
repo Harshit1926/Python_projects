@@ -1,45 +1,63 @@
-title=("WELCOME TO THE GAME GUESS THE NUMBER")
-print(title.center(50))
-
-rules = """ 
-RULES FOR THE GAME
-1. If you guess the number in 5 or fewer attempts, you will get 100 points.
-2. If you take more than 5 attempts, every extra attempt will reduce 10 points.
-3. Minimum points are 0.
-"""
-print(rules)
-
+from flask import Flask, redirect, request, session, url_for, flash, render_template
+import webbrowser
 import random
-while True:
-    number=random.randint(1,100)
-    guess=None
-    attempts=0
-    max_points=100
-    while (guess!=number):
-        try: 
-            guess=int(input("\nEnter your guess:"))
-            
-        except ValueError:
-            print("Enter a valid number.")
-            continue
-        attempts +=1
-        if (guess>number):
-            print("Enter a smaller value.")
-        elif(guess<number):
-            print("Enter a greater value.")
+
+app = Flask(__name__)
+app.secret_key = "your_secret_key"  # Required for session
+
+@app.route("/", methods=["GET", "POST"])
+def guess():
+    if "number" not in session:
+        session["number"] = random.randint(1, 100)
+        session["max_point"] = 100
+        session["user_points"] = 0
+        session["attempts"] = 0
+
+    inst = None
+    points = session["user_points"]
+    attempts = session["attempts"]
+    guess = None
+
+    if request.method == "POST":
+        raw_guess = request.form.get("guess")
+        if not raw_guess or not raw_guess.isdigit():
+            flash("Please enter a valid number between 1 and 100.")
+            return redirect(url_for("guess"))
+
+        guess = int(raw_guess)
+        if guess < 1 or guess > 100:
+            flash("Enter a number between 1 and 100.")
+            return redirect(url_for("guess"))
+
+        number = session["number"]
+
+        if guess > number:
+            inst = "Enter a smaller value."
+        elif guess < number:
+            inst = "Enter a larger value."
+        if guess == number:
+            inst = "You guessed right!"
+        session["attempts"] += 1
+        attempts = session["attempts"]
+
+        if attempts <= 5:
+            points = 100
         else:
-            print(" Congratulations! You guessed the number!")
+            points = max(0, 100 - (attempts - 5) * 10)
 
-            if (attempts<=5):
-                points=max_points
-            else:
-                points=min(100,max(0,100-(attempts-5)*10))
-            print(f"you scored {points} points.")
-            print(f" You took {attempts} attempts.") 
-            
-    next_round=input("do you want to play another round (yes/no):").lower()
-    if (next_round!="yes"):
-        print("thank you for playing.")
-        break
+        session["user_points"] = points
+    return render_template("guess.html", inst=inst, points=points, attempts=attempts, guess=guess)
 
+@app.route("/again", methods=["POST"])
+def again():
+    if request.form.get("action") == "play again":
+        session.clear()
+        return redirect(url_for("guess"))
+    else:
+        return render_template("thanks2.html")
+    
 
+if __name__ == "__main__":
+    webbrowser.open("http://127.0.0.1:5001")
+    app.run(debug=True, host="127.0.0.1", port=5001,use_reloader=False)
+    
