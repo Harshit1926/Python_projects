@@ -6,9 +6,9 @@ Explore 9 interactive CLI tools built using Python. These projects are designed 
 
 | Project Name               | Description                                                                                                                          |
 |---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| 1. Quiz Game              | Multiple-choice Python quiz with feedback                                                                                            |
+| 1. Python Quiz Web App              | Multiple-choice Python quiz with feedback                                                                                            |
 | 2. Secret Code Generator  | Encrypt/decrypt messages with transformation logic                                                                                   |
-| 3. Guess the Number       | Classic number guessing with hints and attempts tracker                                                                              |
+| 3. Guess the Number Web App      | Classic number guessing with hints and attempts tracker                                                                              |
 | 4. Rock Paper Scissors Web App    | Play 3 round game against the computer                                                                                                            |
 | 5. Multi stock visualizer with 20 days moving average | Plots closing prices and 20-day moving averages using Yahoo Finance and Matplotlib                           |
 | 6. Unit Converter         | Converts between various units (length, weight, temperature) using intuitive input handling                                          |
