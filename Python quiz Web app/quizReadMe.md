@@ -22,14 +22,23 @@ A beginner-friendly, interactive quiz web application built using Flask. This ap
 # PROJECT STRUCTURE
 
 python-quiz-web-app/
+<br>
 ├── quiz.py
+<br>
 ├── quizReadMe.md
+<br>
 ├── templates/
+<br>
 │   ├── home.html
+<br>
 │   ├── quiz.html
+<br>
 │   └── result.html
+<br>
 ├── data/
+<br>
 │   └── quizinfo.txt
+
 
 # HOW IT WORKS
 
