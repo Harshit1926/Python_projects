@@ -18,14 +18,17 @@ A simple and interactive number guessing game built with Flask. The app challeng
 - Deployment       Localhost (auto-launch in browser)
 
 # PROJECT STRUCTURE
-
-Guess the Number game/
+Guess-the-Number/
+<br>
 ├── guessthenumber.py
+<br>
 ├── templates/
-│   ├── guess.html
-│   └── thanks2.html
+<br>
+│ ├── guess.html
+<br>
+│ └── thanks2.html
+<br>
 ├── guessthenumberReadMe.md
-
 # HOW IT WORKS
 
 - A random number between 1 and 100 is generated and stored in the session.
