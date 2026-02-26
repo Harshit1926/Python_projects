@@ -15,6 +15,7 @@ It leverages transfer learning with MobileNetV2 pretrained on ImageNet, retrains
 6. Saves trained model (`mobilenet_face.pth`) for reuse  
 7. Current best training accuracy: **77.14%**  
 8. Project is **still in progress** and will be updated to achieve better results  
+9. Includes **sample files from the LFW dataset** for training reference (recommended to use your own dataset for best results)  
 
 ---
 
