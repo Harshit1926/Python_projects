@@ -11,5 +11,4 @@
 | 9. Smart Face Detector                                | Uses OpenCV Haar cascades to detect faces, smiles, and eyes in real-time. Automatically captures photos when a smile is detected, with cooldown timer and overlay feedback                                                                                                                                                               |
 | 10. Flu Diagnosis Predictor                           | Machine learning project using Decision Tree Classifier to predict flu based on fever and cough. Includes accuracy evaluation, confusion matrix visualization, decision tree plot, and interactive CLI diagnosis                                                                                                                         |
 | 11. Face Recognizer (Transfer Learning – MobileNetV2) | Deep learning-based real-time face recognition system built using PyTorch and pretrained MobileNetV2. Implements transfer learning by freezing feature layers and retraining classifier for custom face dataset. Includes data augmentation, live webcam prediction using OpenCV, dynamic labeling, model saving (.pth), and GPU support |
-<br>
-<b>ALL THE PROJECTS CREATED BY HARSHIT MALHOTRA</b>
+
