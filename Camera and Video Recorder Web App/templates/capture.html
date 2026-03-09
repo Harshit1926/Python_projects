@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capture</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
+
+body{
+
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:radial-gradient(circle at center,#0f172a,#020617);
+
+color:white;
+
+overflow:hidden;
+
+}
+
+/* floating background glow */
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+width:500px;
+height:500px;
+
+background:radial-gradient(circle,#2563eb,transparent);
+
+filter:blur(120px);
+
+animation:moveGlow 8s infinite alternate;
+
+}
+
+@keyframes moveGlow{
+
+0%{transform:translate(-200px,-100px);}
+100%{transform:translate(200px,150px);}
+
+}
+
+/* container */
+
+.container{
+
+text-align:center;
+
+padding:60px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,0.05);
+
+backdrop-filter:blur(10px);
+
+box-shadow:0 0 40px rgba(0,0,0,0.7);
+
+}
+
+/* button */
+
+button{
+
+width:260px;
+
+padding:18px;
+
+font-size:18px;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+background:linear-gradient(135deg,#ef4444,#dc2626);
+
+color:white;
+
+position:relative;
+
+transition:0.3s;
+
+}
+
+/* hover */
+
+button:hover{
+
+transform:translateY(-5px) scale(1.05);
+
+box-shadow:0 10px 30px rgba(0,0,0,0.7);
+
+}
+
+/* pulse animation */
+
+button::after{
+
+content:"";
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+width:10px;
+height:10px;
+
+background:white;
+
+border-radius:50%;
+
+transform:translate(-50%,-50%);
+
+animation:pulse 1.5s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+box-shadow:0 0 0 0 rgba(255,255,255,0.6);
+}
+
+70%{
+box-shadow:0 0 0 20px rgba(255,255,255,0);
+}
+
+100%{
+box-shadow:0 0 0 0 rgba(255,255,255,0);
+}
+
+}
+
+/* click animation */
+
+button:active{
+
+transform:scale(0.92);
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<form action="{{url_for('capture')}}" method="post">
+
+<button type="submit" name="start" value="1" class="capturing">
+🎥 Start Capturing
+</button>
+
+</form>
+
+</div>
+
+<script>
+
+/* glow cursor effect */
+
+document.addEventListener("mousemove",(e)=>{
+
+let glow=document.createElement("div")
+
+glow.style.position="absolute"
+glow.style.left=e.pageX+"px"
+glow.style.top=e.pageY+"px"
+
+glow.style.width="6px"
+glow.style.height="6px"
+
+glow.style.background="white"
+glow.style.borderRadius="50%"
+
+glow.style.pointerEvents="none"
+
+glow.style.opacity="0.6"
+
+glow.style.boxShadow="0 0 10px white"
+
+document.body.appendChild(glow)
+
+setTimeout(()=>{
+glow.remove()
+},300)
+
+})
+
+</script>
+
+</body>
+</html>

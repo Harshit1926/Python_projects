@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Camera & Recorder</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: "Segoe UI", sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background: linear-gradient(-45deg,#141e30,#243b55,#3a1c71,#d76d77);
+background-size:400% 400%;
+animation:bgmove 12s infinite ease;
+overflow:hidden;
+}
+
+@keyframes bgmove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.container{
+
+width:430px;
+padding:45px;
+border-radius:20px;
+
+background:rgba(255,255,255,0.12);
+backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,0.25);
+
+box-shadow:0 25px 60px rgba(0,0,0,0.35);
+
+text-align:center;
+color:white;
+
+transition:transform 0.2s ease;
+}
+
+.title{
+font-size:30px;
+font-weight:600;
+margin-bottom:5px;
+}
+
+.subtitle{
+opacity:0.8;
+margin-bottom:30px;
+}
+
+.select-text{
+margin-bottom:25px;
+font-size:18px;
+}
+
+button{
+
+position:relative;
+overflow:hidden;
+
+width:210px;
+padding:14px;
+margin:12px;
+
+border:none;
+border-radius:10px;
+
+font-size:16px;
+font-weight:500;
+cursor:pointer;
+
+transition:all 0.3s ease;
+}
+
+.inbuilt{
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+color:white;
+}
+
+.external{
+background:linear-gradient(135deg,#ff9966,#ff5e62);
+color:white;
+}
+
+button:hover{
+
+transform:translateY(-5px) scale(1.05);
+box-shadow:0 12px 30px rgba(0,0,0,0.4);
+
+}
+
+button.active{
+outline:3px solid white;
+}
+
+.footer{
+margin-top:25px;
+opacity:0.7;
+font-size:14px;
+}
+
+.ripple{
+position:absolute;
+border-radius:50%;
+background:rgba(255,255,255,0.7);
+transform:scale(0);
+animation:ripple 600ms linear;
+}
+
+@keyframes ripple{
+to{
+transform:scale(4);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container" id="card">
+
+<div class="title">📷 Camera & Recorder</div>
+<div class="subtitle">by Harshit Malhotra</div>
+
+<div class="select-text">Select your Webcam</div>
+
+<form action="{{ url_for('camera_selection') }}" method="post">
+
+<button type="submit" name="camera" value="0" class="inbuilt">
+Inbuilt Camera
+</button>
+
+<button type="submit" name="camera" value="1" class="external">
+External Camera
+</button>
+
+</form>
+
+<div class="footer">
+AI Powered Webcam Recorder
+</div>
+
+</div>
+
+<script>
+
+// Ripple Effect
+document.querySelectorAll("button").forEach(button=>{
+button.addEventListener("click",function(e){
+
+const circle=document.createElement("span");
+circle.classList.add("ripple");
+
+const rect=this.getBoundingClientRect();
+
+circle.style.left=e.clientX-rect.left+"px";
+circle.style.top=e.clientY-rect.top+"px";
+
+this.appendChild(circle);
+
+setTimeout(()=>{
+circle.remove();
+},600)
+
+})
+})
+
+// Button Selection Highlight
+const buttons=document.querySelectorAll("button")
+
+buttons.forEach(btn=>{
+btn.addEventListener("click",()=>{
+buttons.forEach(b=>b.classList.remove("active"))
+btn.classList.add("active")
+})
+})
+
+// 3D Card Tilt Effect
+const card=document.getElementById("card")
+
+document.addEventListener("mousemove",(e)=>{
+
+let x=(window.innerWidth/2-e.pageX)/40
+let y=(window.innerHeight/2-e.pageY)/40
+
+card.style.transform=`rotateY(${x}deg) rotateX(${y}deg)`
+
+})
+
+</script>
+
+</body>
+</html>
