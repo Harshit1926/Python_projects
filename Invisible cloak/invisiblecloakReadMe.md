@@ -1,13 +1,13 @@
-🧙‍♂️ Invisibility Cloak using OpenCV (Fun Project)
+# Invisibility Cloak using OpenCV (Fun Project) 🧙‍♂️
 
-Ever wondered what it would feel like to have Harry Potter's invisibility cloak? 👀
+*Ever wondered what it would feel like to have Harry Potter's invisibility cloak?* 👀
 This project recreates a simple version of that effect using Python, OpenCV, and Computer Vision.
 
 The program detects a specific cloak color (red, green, or blue) and replaces it with the captured background, creating the illusion that the cloak has become invisible.
 
 This was created as a small fun experiment while learning computer vision concepts.
 
-🎥 How It Works
+# How It Works 🎥
 
 The program starts and captures the background for a few seconds.
 
@@ -21,7 +21,7 @@ The cloak area is replaced with the background image.
 
 The result creates the illusion that the cloak is invisible.
 
-🛠️ Technologies Used
+# Technologies Used 🛠️
 
 Python
 
@@ -31,7 +31,7 @@ NumPy
 
 Computer Vision (HSV Color Detection)
 
-📦 Installation
+# Installation 📦
 
 Install the required libraries:
 
@@ -59,7 +59,8 @@ Enter the color of the cloak (red, green, blue): red
 Press:
 
 Q → Quit the application
-📂 Project Structure
+
+# Project Structure 📂
 invisibility-cloak/
 │
 ├── invisibility_cloak.py
@@ -76,7 +77,7 @@ Uses OpenCV masking and background replacement
 
 Simple and interactive
 
-⚠️ Tips for Best Results
+# Tips for Best Results ⚠️
 
 Use a solid colored cloth
 
@@ -86,14 +87,14 @@ Avoid wearing clothes that match the cloak color
 
 Good lighting improves color detection accuracy
 
-😄 Why I Made This
+# Why I Made This 😄
 
 I came across the idea of an Invisibility Cloak project online and thought it looked really fun.
 So I decided to recreate it myself using Python and OpenCV while experimenting with computer vision and real-time video processing.
 
 This project helped me understand concepts like color detection, masking, and background replacement in a simple and practical way.
 
-🚀 Possible Improvements
+# Possible Improvements 🚀
 
 Automatic cloak color detection
 

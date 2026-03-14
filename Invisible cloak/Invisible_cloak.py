@@ -6,6 +6,9 @@ if not (camera_mode==0 or camera_mode==1):
     print("Invalid input. Defaulting to internal webcam.")
     camera_mode=0
 cloak_color=input("Enter the color of the cloak (red, green, blue): ").lower()
+if not (cloak_color in ['red', 'green', 'blue']):
+    print("Invalid input. Defaulting to red.")
+    cloak_color='red'
 def get_mask(cloak_color, hsv):
     if cloak_color=='red':
         lower_red=np.array([0,120,70])
