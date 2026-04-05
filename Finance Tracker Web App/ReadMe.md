@@ -39,20 +39,31 @@ The system supports three distinct user roles — Admin, Analyst, and User — e
 finance_tracker/
 │
 ├── app.py
+<br>
 ├── data.json
 │
 ├── templates/
+<br>
 │ ├── login.html
+<br>
 │ ├── user.html
 │ ├── admin.html
+<br>
 │ └── analyst.html
+<br>
 │
 └── utils/
+<br>
 │ ├── core.py
+<br>
 │ ├── viewers.py
+<br>
 │ ├── transactions.py
+<br>
 │ ├── records_update.py
+<br>
 │ └── filters.py
+<br>
 └──
 
 ---
@@ -63,12 +74,19 @@ Each user is stored as an object in `data.json`:
 
 {
   "Name": "John Doe",
+  <br>
   "DOB": "2000-01-01",
+  <br>
   "Phone": "9999999999",
+  <br>
   "Password": "password",
+  <br>
   "Role": "user",
+  <br>
   "Transactions": [],
+  <br>
   "Summary": {},
+  <br>
   "Passbook": []
 }
 
