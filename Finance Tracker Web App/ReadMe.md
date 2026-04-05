@@ -61,7 +61,6 @@ finance_tracker/
 
 Each user is stored as an object in `data.json`:
 
-```json
 {
   "Name": "John Doe",
   "DOB": "2000-01-01",
