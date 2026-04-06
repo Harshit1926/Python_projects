@@ -28,7 +28,7 @@ def new_transaction(db, person_index, category, amount, notes, txn_type, date):
 
 
 # Remove a transaction by index, reindex remaining entries, log the deletion, and refresh the summary
-def delete_transaction(db, txn_index, person_index):
+def delete_transaction(db,person_index,txn_index):
     txns = db[person_index]['Transactions']
 
     for i, txn in enumerate(txns):

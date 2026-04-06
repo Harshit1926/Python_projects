@@ -40,10 +40,7 @@ def update_records(choice, new_value, index, db):
 
     if col:
         db[index][col] = new_value
-        update_passbook(db, "Record Updated", index, f"{col} changed to {new_value}")
-        save_data(db)
         return True
-
     return False
 
 
@@ -51,8 +48,6 @@ def update_records(choice, new_value, index, db):
 def delete_person(name, dob, phone, db):
     for i, person in enumerate(db):
         if person["Name"] == name and person["DOB"] == dob and person["Phone"] == phone:
-            update_passbook(db, "Record Deleted", i, f"{name} with DOB {dob} and phone {phone} deleted")
             db.pop(i)
-            save_data(db)
             return True
     return False

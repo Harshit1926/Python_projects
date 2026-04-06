@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, flash
 import webbrowser
 
-from utils.core import log_action, recent_transactions, load_data
+from utils.core import log_action, recent_transactions, load_data,save_data
 from utils.filters import filter_transactions, filter_summary
 from utils.viewers import view_transactions, view_passbook, view_summary
 from utils.transactions import new_transaction, delete_transaction
@@ -75,7 +75,6 @@ def add_txn():
     date     = request.form["Date"]
 
     new_transaction(db, idx, category, amount, notes, txn_type, date)
-    log_action(db, idx, "Transaction Added", f"{txn_type} of {amount} in {category}")
     flash("Transaction added successfully!", "success")
     return redirect("/user")
 
@@ -91,7 +90,6 @@ def delete_txn(txn_id):
     idx = db.index(user)
 
     delete_transaction(db, idx, txn_id)
-    log_action(db, idx, "Transaction Deleted", f"Transaction ID {txn_id} removed")
     flash("Transaction deleted successfully!", "success")
     return redirect("/user")
 
@@ -119,17 +117,17 @@ def admin_update():
     user = next((u for u in db if u["Phone"] == phone), None)
 
     if user is not None:
-        idx = db.index(user)                                          
-        log_action(db, idx, "Person Updated", f"{field} changed to {value}")  
+        idx = db.index(user)
         updated = update_records(field, value, idx, db)
         if updated:
+            log_action(db, idx, "Person Updated", f"{field} changed to {value}")
             flash("Person updated successfully!", "success")
         else:
             flash(f"Invalid field '{field}' — no update made.", "danger")
     else:
         flash("Person not found!", "danger")
 
-    return redirect("/admin")                                         
+    return redirect("/admin")                                       
 
 
 @app.route("/admin/delete", methods=["POST"])
@@ -148,12 +146,15 @@ def admin_delete():
     )
 
     if person_index is not None:
-        log_action(db, person_index, "Person Deleted", f"{name} removed")  # log BEFORE delete
+        print(f"Stored: '{db[person_index]['Name']}' | '{db[person_index]['DOB']}'")
+        print(f"Form:   '{name}' | '{dob}'")
         deleted = delete_person(name, dob, phone, db)
+        print(f"Deleted: {deleted}")
         if deleted:
+            save_data(db)
             flash("Person deleted successfully!", "success")
         else:
-            flash("Name or DOB did not match the phone number on record.", "error")
+            flash("Name or DOB did not match the phone number on record.", "danger")
     else:
         flash("Person not found!", "danger")
 
