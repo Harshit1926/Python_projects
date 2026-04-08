@@ -11,7 +11,7 @@ def new_person(name, DOB, phone_number, password, db):
         "DOB": DOB,
         "Phone": phone_number,
         "Password": password,
-        "Role": "viewer",
+        "Role": "user",
         "Transactions": [],
         "Summary": {
             "TotalIncome": 0,
