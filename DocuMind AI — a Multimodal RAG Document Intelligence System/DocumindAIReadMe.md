@@ -101,22 +101,8 @@ Verify installation:
 
 tesseract --version
 
-5. OCR Setup (Tesseract)
 
-To enable OCR for scanned PDFs and images, install Tesseract OCR.
-
-Download:
-https://github.com/tesseract-ocr/tesseract
-
-After installation, update the path in ingest.py:
-
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-
-Verify installation:
-
-tesseract --version
-
-6. Run the Application
+5. Run the Application
 
 python app.py
 
@@ -125,7 +111,7 @@ Open in browser:
 http://127.0.0.1:5000/
 
 
-7. Example Usage
+6. Example Usage
 
 i. Upload a document
 ii. Ask a question
