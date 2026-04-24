@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Answer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body class="centered">
+  <div class="container">
+
+    <div class="topbar">
+      <div class="doc-badge">📄 {{ filename }}</div>
+      <a href="/" class="new-upload">↑ New document</a>
+    </div>
+
+    <div class="question-card">
+      <p class="label">Your question</p>
+      <p class="question-text">{{ query }}</p>
+    </div>
+
+    <div class="answer-card">
+      <p class="label">Answer</p>
+      <p class="answer-text">{{ answer }}</p>
+    </div>
+
+    <p class="sources-title">Sources from document</p>
+    {% for source in sources %}
+    <div class="source-card">
+      <div class="source-meta">
+        <span class="source-num">Source {{ source.rank }}</span>
+        <span class="source-score">relevance: {{ source.score }}</span>
+      </div>
+      <p class="source-text">{{ source.text[:300] }}...</p>
+    </div>
+    {% endfor %}
+
+    <div class="ask-again">
+      <p>Ask another question</p>
+      <form action="/ask" method="POST" class="search-box">
+        <input type="text" name="query" placeholder="Ask something else..." required>
+        <button type="submit" class="btn">Ask</button>
+      </form>
+    </div>
+
+  </div>
+</body>
+
+</html>

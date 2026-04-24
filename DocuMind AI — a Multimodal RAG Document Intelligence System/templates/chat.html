@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ask a Question</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="centered">
+  <div class="container">
+    <div class="doc-badge">📄 {{ filename }}</div>
+    <h1>Ask anything</h1>
+    <p class="subtitle">Your document is ready — type a question below</p>
+
+    <form action="/ask" method="POST" class="search-box">
+      <input type="text" name="query" id="query" placeholder="What is this document about?" autofocus required>
+      <button type="submit" class="btn">Ask</button>
+    </form>
+
+    <div class="suggestions">
+      <p>Try asking</p>
+      <div class="chips">
+        <span class="chip" onclick="fillQuery(this)">Summarise this document</span>
+        <span class="chip" onclick="fillQuery(this)">What are the key points?</span>
+        <span class="chip" onclick="fillQuery(this)">What is the main conclusion?</span>
+        <span class="chip" onclick="fillQuery(this)">List important terms</span>
+      </div>
+    </div>
+
+    <a href="/" class="footer-link">↑ Upload a different document</a>
+  </div>
+
+  <script>
+    function fillQuery(el) {
+      document.getElementById("query").value = el.textContent;
+      document.getElementById("query").focus();
+    }
+  </script>
+</body>
+
+</html>

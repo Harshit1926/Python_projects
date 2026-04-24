@@ -1,0 +1,39 @@
+# Secret keys — never push this
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Uploaded files — keep folder structure but ignore contents
+data/uploads/*
+data/vector_store/*
+!data/uploads/.gitkeep
+!data/vector_store/.gitkeep
+
+# Model cache — too large for GitHub
+.cache/
+huggingface/
+
+# VS Code settings
+.vscode/
+
+# Windows junk files
+Thumbs.db
+desktop.ini
+
+# Mac junk files
+.DS_Store
+
+# Logs
+*.log
+
+# Tesseract
+*.exe

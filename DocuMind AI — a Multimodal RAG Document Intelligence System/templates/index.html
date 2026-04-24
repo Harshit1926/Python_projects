@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAG Document Intelligence</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="centered">
+  <div class="container">
+    <div class="logo">📄</div>
+    <h1>Document Intelligence</h1>
+    <p class="subtitle">Upload a document and ask anything about it</p>
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <div class="upload-box" id="uploadBox">
+        <input type="file" name="file" id="file" accept=".pdf,.png,.jpg,.jpeg,.txt" required
+          onchange="showFileName(this)">
+        <label for="file">
+          <div class="upload-icon">↑</div>
+          <span class="upload-label-text">Click to upload your document</span>
+          <span class="upload-hint">PDF, PNG, JPG, TXT — up to 10MB</span>
+          <span class="file-name" id="fileName"></span>
+        </label>
+      </div>
+      <button type="submit" class="btn">Process Document</button>
+    </form>
+
+    <div class="supported">
+      <span class="badge">PDF</span>
+      <span class="badge">PNG</span>
+      <span class="badge">JPG</span>
+      <span class="badge">TXT</span>
+      <span class="badge">Scanned docs</span>
+    </div>
+  </div>
+
+  <script>
+    function showFileName(input) {
+      const label = document.getElementById("fileName");
+      if (input.files && input.files[0]) {
+        label.textContent = input.files[0].name;
+        label.style.display = "inline-block";
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+flask
+python-dotenv
+sentence-transformers
+faiss-cpu
+numpy
+pymupdf
+pytesseract
+pillow
+langchain-text-splitters
+groq
+werkzeug
