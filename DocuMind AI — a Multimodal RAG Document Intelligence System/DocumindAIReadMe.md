@@ -73,22 +73,23 @@ DocuMind-AI/
 
 ## Setup Instructions
 
-1. Clone the repository
+## Clone the repository
 bash'''
 git clone https://github.com/your-username/documind-ai.git
 cd documind-ai
 
-2. Install dependencies
+## Install dependencies
+
 pip install -r requirements.txt
 
-3. Configure environment variables
+## Configure environment variables
 
 Create a .env file:
 
 FLASK_SECRET_KEY=your_secret_key
 GROQ_API_KEY=your_api_key
 
-4. To enable OCR for scanned PDFs and images, install Tesseract OCR.
+## To enable OCR for scanned PDFs and images, install Tesseract OCR.
 
 Download:
 https://github.com/tesseract-ocr/tesseract
@@ -102,7 +103,7 @@ Verify installation:
 tesseract --version
 
 
-5. Run the Application
+## Run the Application
 
 python app.py
 
@@ -111,7 +112,7 @@ Open in browser:
 http://127.0.0.1:5000/
 
 
-6. Example Usage
+## Example Usage
 
 i. Upload a document
 ii. Ask a question
